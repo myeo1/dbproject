@@ -13,9 +13,7 @@ class AddView(View):
             return HttpResponse(status=403)
         num01 = float(json.loads(request.body)['num01'])
         num02 = float(json.loads(request.body)['num02'])
-        #num01 = 2
-        #num02 = 7
-        return HttpResponse(num01 + num02)
+        return HttpResponse(num01+num02)
 
 class SubView(View):
     def get(self, request):
@@ -52,16 +50,16 @@ def home(request):
 # def contact(request):
 #     return HttpResponse('contact view')
 
-
 def contact(request):
-    if request.method == 'POST':
+    if request.POST:
         form = ContactForm(request.POST)
         if form.is_valid():
             name = form.cleaned_data['name']
-        email = form.cleaned_data['email']
+            email = form.cleaned_data['email']
         print(name, email)
     form = ContactForm()
     return render(request, 'form.html', {'form': form})
+
 
 
 def authenticate(token):

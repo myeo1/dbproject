@@ -8,9 +8,13 @@ from basic_calculator.views import AddView, SubView, DivView, MultiView
 
 urlpatterns = [
     path('', views.contact),
-    path('basic_calculator/add/', AddView.as_view()),
-    path('basic_calculator/sub/', SubView.as_view()),
-    path('basic_calculator/div/', DivView.as_view()),
-    path('basic_calculator/multi/', MultiView.as_view())
+    path('basic_calculator/add/', AddView.as_view(), name='add'),
+    path('basic_calculator/sub/', SubView.as_view(), name='sub'),
+    path('basic_calculator/div/', DivView.as_view(), name='div'),
+    path('basic_calculator/multi/', MultiView.as_view(), name='multi')
+    # path('add/', AddView.as_view(), name='add'),
+    # path('sub/', SubView.as_view(), name='sub'),
+    # path('div/', DivView.as_view(), name='div'),
+    # path('multi/', MultiView.as_view(), name='multi')
 ]
-#app_name = 'basic_calculator'
+
